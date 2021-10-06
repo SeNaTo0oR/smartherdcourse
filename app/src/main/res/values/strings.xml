@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartHerd Course</string>
+    <string name="button">Button</string>
+    <string name="show_toast">Show Toast</string>
 </resources>
