@@ -28,14 +28,12 @@ class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerVi
         return hobbies.size
     }
     inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var currentHobby: Hobby? = null
-        var currentPosition: Int = 0
-
+            var currentHobby: Hobby? = null
+            var currentPosition: Int = 0
         init {
-            itemView.setOnClickListener{
-                Toast.makeText(context, currentHobby!!.title + " Clicked ", Toast.LENGTH_SHORT ).show()
+            itemView.setOnClickListener {
+                Toast.makeText(context, currentHobby!!.title + " Clicked ", Toast.LENGTH_SHORT).show()
             }
-
             itemView.imgShare.setOnClickListener {
                 val message:String = "My Hobby Is: " + currentHobby!!.title
                 val intent = Intent()
@@ -43,12 +41,16 @@ class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerVi
                 intent.putExtra(Intent.EXTRA_TEXT, message)
                 intent.type = "text/plain"
 
-                context.startActivity(Intent.createChooser(intent, "Share to: "))
+               context.startActivity(Intent.createChooser(intent, "Share to: "))
+
             }
         }
 
         fun setData(hobby: Hobby?, pos: Int){
             itemView.txvTitle.text = hobby!!.title
+
+            this.currentHobby = hobby
+            this.currentPosition = pos
         }
     }
 }
