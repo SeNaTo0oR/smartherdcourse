@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartherdcourse.Hobby
 import com.example.smartherdcourse.R
+import com.example.smartherdcourse.showToast
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
@@ -31,16 +32,21 @@ class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerVi
             var currentPosition: Int = 0
         init {
             itemView.setOnClickListener {
-                Toast.makeText(context, currentHobby!!.title + " Clicked ", Toast.LENGTH_SHORT).show()
+                currentHobby?.let {
+                    context.showToast(currentHobby!!.title + " Clicked ", Toast.LENGTH_LONG)
+                }
             }
             itemView.imgShare.setOnClickListener {
-                val message:String = "My Hobby Is: " + currentHobby!!.title
-                val intent = Intent()
-                intent.action = Intent.ACTION_SEND
-                intent.putExtra(Intent.EXTRA_TEXT, message)
-                intent.type = "text/plain"
+                currentHobby?.let {
+                    val message:String = "My Hobby Is: " + currentHobby!!.title
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(Intent.EXTRA_TEXT, message)
+                    intent.type = "text/plain"
 
-               context.startActivity(Intent.createChooser(intent, "Share to: "))
+                    context.startActivity(Intent.createChooser(intent, "Share to: "))
+                }
+
             }
         }
         fun setData(hobby: Hobby?, pos: Int){
