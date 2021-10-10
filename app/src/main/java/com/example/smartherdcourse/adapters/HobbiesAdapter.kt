@@ -1,4 +1,4 @@
-package com.example.smartherdcourse
+package com.example.smartherdcourse.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartherdcourse.Supplier.hobbies
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.smartherdcourse.Hobby
+import com.example.smartherdcourse.R
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
@@ -42,10 +41,8 @@ class HobbiesAdapter(val context: Context,val hobbies: List<Hobby>) : RecyclerVi
                 intent.type = "text/plain"
 
                context.startActivity(Intent.createChooser(intent, "Share to: "))
-
             }
         }
-
         fun setData(hobby: Hobby?, pos: Int){
             itemView.txvTitle.text = hobby!!.title
 

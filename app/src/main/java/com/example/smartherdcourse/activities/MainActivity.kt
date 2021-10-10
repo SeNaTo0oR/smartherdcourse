@@ -1,10 +1,11 @@
-package com.example.smartherdcourse
+package com.example.smartherdcourse.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.smartherdcourse.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 

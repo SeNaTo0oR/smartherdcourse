@@ -1,8 +1,9 @@
-package com.example.smartherdcourse
+package com.example.smartherdcourse.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.smartherdcourse.R
 import kotlinx.android.synthetic.main.activity_second.*
 
 class SecondActivity : AppCompatActivity() {
@@ -15,6 +16,5 @@ class SecondActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
         txvUserMessage.text = msg
-
     }
 }

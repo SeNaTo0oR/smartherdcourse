@@ -3,4 +3,6 @@
     <string name="button">Button</string>
     <string name="show_toast">Show Toast</string>
     <string name="etUserMessage">Enter Your Message</string>
+    <string name="title">Title</string>
+    <string name="share_botton">Share Botton</string>
 </resources>
